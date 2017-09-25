@@ -15,7 +15,7 @@ ____________________________________________________
 
     - Permission 종류는 실행 시간 권한인 `Runtime Permission` 과 설치 권한인 `BuildTime Permission` 이 있다.
 
-    - Permission 처리는 `정상 권한 처리` 와  `위험 권한 처리` 가 존재한다. `정상 권한 처리`는 Manifest.xml 에 등록하면 시스템이 자동으로 권한을 APP에 부여하지만, `위험 권한 처리` 는 APP에서 위험권한을 사용할 경우, 직접 사용자의 동의를 얻어야 하기 때문에 개발자가 코드로 직접 처리해야 한다.
+    - Permission 처리는 `정상 권한 처리` 와  `위험 권한 처리` 가 존재한다. `정상 권한 처리`는 Manifest.xml 에 등록하면 시스템이 자동으로 권한을 APP에 부여하지만, `위험 권한 처리` 는 APP에서 위험 권한을 사용할 경우, 직접 사용자의 동의를 얻어야 하기 때문에 개발자가 코드로 직접 처리해야 한다.
 
     - 참조 : [시스템 권한](https://developer.android.com/guide/topics/security/permissions.html?hl=ko#normal-dangerous)
 
