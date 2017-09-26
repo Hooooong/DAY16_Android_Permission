@@ -78,15 +78,19 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        // 3. 권한 승인 여부
-        switch (requestCode) {
+        switch (requestCode){
             case REQ_CODE:
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
-                    // 승인 처리
-                    // 초기화 실행
+                boolean flag = true;
+                for(int grantResult : grantResults){
+                    if(grantResult != PackageManager.PERMISSION_GRANTED){
+                        flag = false;
+                        break;
+                    }
+                }
+                if(flag){
                     init();
                 }else{
-                    Toast.makeText(this, "권한을 허용해야 APP 을 사용할 수 있습니다." , Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "권한 승인을 하지 않으면 APP 을 사용할 수 없습니다.", Toast.LENGTH_LONG).show();
                     finish();
                 }
                 break;
