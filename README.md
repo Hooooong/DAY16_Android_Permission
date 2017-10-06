@@ -131,26 +131,26 @@ ____________________________________________________
 
       ```JAVA
       @Override
-          public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-              super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-              switch (requestCode){
-                  case REQ_CODE:
-                      boolean flag = true;
-                      for(int grantResult : grantResults){
-                          if(grantResult != PackageManager.PERMISSION_GRANTED){
-                              flag = false;
-                              break;
-                          }
+      public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+          super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+          switch (requestCode){
+              case REQ_CODE:
+                  boolean flag = true;
+                  for(int grantResult : grantResults){
+                      if(grantResult != PackageManager.PERMISSION_GRANTED){
+                          flag = false;
+                          break;
                       }
-                      if(flag){
-                          init();
-                      }else{
-                          Toast.makeText(this, "권한 승인을 하지 않으면 APP 을 사용할 수 없습니다.", Toast.LENGTH_LONG).show();
-                          finish();
-                      }
-                      break;
-              }
+                  }
+                  if(flag){
+                      init();
+                  }else{
+                      Toast.makeText(this, "권한 승인을 하지 않으면 APP 을 사용할 수 없습니다.", Toast.LENGTH_LONG).show();
+                      finish();
+                  }
+                  break;
           }
+      }
       ```
 
 - 참조 : [시스템 권한 사용](https://developer.android.com/training/permissions/index.html?hl=ko),[런타임에 권한 요청](https://developer.android.com/training/permissions/requesting.html?hl=ko)
